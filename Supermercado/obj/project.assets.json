@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carlo\\Desktop\\Carpeta del Anime\\Supermercado\\Supermercado\\Supermercado.csproj",
+      "projectUniqueName": "C:\\Users\\carlo\\Desktop\\Carpeta del Anime\\Supermercado\\laboratorio-03-CarlosAkel\\Supermercado\\Supermercado.csproj",
       "projectName": "Supermercado",
-      "projectPath": "C:\\Users\\carlo\\Desktop\\Carpeta del Anime\\Supermercado\\Supermercado\\Supermercado.csproj",
+      "projectPath": "C:\\Users\\carlo\\Desktop\\Carpeta del Anime\\Supermercado\\laboratorio-03-CarlosAkel\\Supermercado\\Supermercado.csproj",
       "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carlo\\Desktop\\Carpeta del Anime\\Supermercado\\Supermercado\\obj\\",
+      "outputPath": "C:\\Users\\carlo\\Desktop\\Carpeta del Anime\\Supermercado\\laboratorio-03-CarlosAkel\\Supermercado\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
