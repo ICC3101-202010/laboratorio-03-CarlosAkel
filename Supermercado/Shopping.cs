@@ -19,57 +19,61 @@ namespace Supermercado
             Console.WriteLine("Chose a Date(Exp:July-24-9:30am )");
             //Date = Console.ReadLine();
         }
-        public bool ProductListRandom(Shopping items)
+        public bool ProductListRandom()
         {
             DateTime localDate = DateTime.Now;
             int numbers = 30;
             int i = 0;
             while (i < numbers)
             {
+                Shopping tryn5 = new Shopping(localDate, " ", 0, " ", 0);
                 int a = 0;
-                items.RandomProduct();
+                tryn5.RandomProduct();
                 //Console.WriteLine(items.ProductName);
-                items.Date = localDate;
+                tryn5.Date = localDate;
                 a = 0;
                 foreach (Shopping thing in ListP)
                 {
-                    if(thing.ProductName != items.ProductName && thing.Brand != items.Brand)
-                    {
-                        a = 0;
-                        Console.WriteLine("ok");
-                    }
-                    else
+                    if(thing.ProductName == tryn5.ProductName && thing.Brand == tryn5.Brand)//previene a que se repitan mismos tipos de productos
                     {
                         a = 1;
-                        
-                        Console.WriteLine("What");
+                        //Console.WriteLine("bad");
                     }
+                    //else
+                    //{
+                     //   a = 0;
+                        
+                      //  Console.WriteLine("ok");
+                    //}
                     //ListP.Add(items);
                     //Console.WriteLine(items.ProductName + " Brand: " + items.Brand);
                     //i++;
                 }
                 if (a == 0)
                 {
-                    ListP.Add(items);
-                    Console.WriteLine(items.ProductName + " Brand: " + items.Brand);
+                    ListP.Add(tryn5);
+                    Console.WriteLine("Product Name: " + tryn5.ProductName + " Brand: " + tryn5.Brand + " Price: " + tryn5.ProductPrice + "$ Stock " + tryn5.Stock);
                     i++;
                 }
 
             }
             return true;
         }
-        public bool ProductListH(Shopping items)
+        public bool ProductListH()
         {
+            DateTime localDate = DateTime.Now;
             Console.WriteLine("How Many Products?");
             int o = Int32.Parse(Console.ReadLine());
             int h = 0;
-            while(h <= 0)
+            while(h < o)
             {
-                items.HandMadeProduct();
+                Shopping tryn2 = new Shopping(localDate, " ", 0, " ", 0);
+                tryn2.HandMadeProduct();
+                ListP.Add(tryn2);
                 h++;
             }
 
-            ListP.Add(items);
+            //ListP.Add(tryn2);
             Console.WriteLine( "ok");
             return true;
         }
@@ -79,16 +83,15 @@ namespace Supermercado
             string uses = "July - 24 - 9:30am";
             List<int> need = new List<int>();
             int amount = 0;
-            //Console.WriteLine("Selec what you want to buy");
-            int p = 0;
+
             string u = "y";
             while(u == "y")
             {
-                //Console.WriteLine("Selec what you want to buy");
-                //Console.WriteLine(ListP[0].ProductName);
+                Console.WriteLine("Selec what you want to buy");
+                int p = 0;
                 foreach (Shopping item in ListP)
                 {
-                    Console.WriteLine("Selec what you want to buy");
+
                     Console.WriteLine(item.ProductName + " Brand: " + item.Brand + " Price: " + item.ProductPrice + "[" + p + "]");
                     p++;
                 }
@@ -96,31 +99,25 @@ namespace Supermercado
                 if (amount < 1)//pido solo una vez la fecha
                 {
                     Console.WriteLine("Recording your purchase");
-                    //Console.WriteLine("Chose a Date(Exp:July-24-9:30am )");
-                    //uses = Console.ReadLine();
-                    //ListP[answ].Date = uses;
-                    //DateTime localDate = DateTime.Now;
                     Console.WriteLine(localDate);
                     ListP[answ].Date = localDate;
+                    int lol = answ;
                 }
-                //else
-                //{
-                //    ListP[answ].Date = localDate;
-                //}
+
                 need.Add(answ);
                 amount++;
-                Console.WriteLine("How many?");
+                Console.WriteLine("How Many of this Product?");
                 int answ2 = Int32.Parse(Console.ReadLine());
 
                 if( answ2 > ListP[answ].Stock)
                 {
                     Console.WriteLine("We don't have enough, Try less");
-                    Console.WriteLine("How many?");
+                    Console.WriteLine("How many of this product?");
                     answ2 = Int32.Parse(Console.ReadLine());
                 }
-                Console.WriteLine("There is "+ ListP[answ].Stock+ "in stock");
+                Console.WriteLine("There was "+ ListP[answ].Stock+ " in stock");
                 ListP[answ].Stock -= answ2;
-                Console.WriteLine("Now " + ListP[answ].Stock + "in stock");
+                Console.WriteLine("Now " + ListP[answ].Stock + " in stock");
                 Mybuy.Add(ListP[answ]);
 
 
@@ -128,6 +125,28 @@ namespace Supermercado
                 u = Console.ReadLine();
             }
 
+
+            return true;
+        }
+        public bool AutoPurchase()
+        {
+            DateTime localDate = DateTime.Now;
+            Random random = new Random();
+            int numeroC = random.Next(1, 6);
+            int i = 0;
+            Console.WriteLine("STARTING NEW TRANSACTION");
+            while (i < numeroC){
+                int rasss = random.Next(0, 30);
+                int lose = random.Next(1, 15);
+                Console.WriteLine("The client item that wants to buy is " + ListP[rasss].ProductName);
+                Console.WriteLine("There was " + ListP[rasss].Stock + " in stock");
+                ListP[rasss].Date = localDate;
+                ListP[rasss].Stock -= lose;
+                Console.WriteLine("Now " + ListP[rasss].Stock + " in stock");
+                i++;
+            }
+            Console.WriteLine("Transaction Finished");
+            Console.WriteLine("--------------------");
 
             return true;
         }

@@ -30,14 +30,20 @@ namespace Supermercado
         }
         public void HandMade()
         {
-            Console.WriteLine("Choose Rut(Nine digits(194327548))");
+            Console.WriteLine("Choose Rut(Nine digits(194327548))(int)");
             Rut = Int32.Parse(Console.ReadLine());
             Console.WriteLine("Choose name");
             Name = Console.ReadLine();
             Console.WriteLine("Choose LastName");
             LastName = Console.ReadLine();
-            Console.WriteLine("Choose Birth(Exp: 4-27-1996)");
-            Birth = Console.ReadLine();
+            Console.WriteLine("Choose Birth(Exp: 04-27-1996)Length = 10");
+            string BirthAns = Console.ReadLine();
+            while(BirthAns.Length != 10 )
+            {
+                Console.WriteLine("Choose Birth again pls(Exp: 04-27-1996)");
+                BirthAns = Console.ReadLine();
+            }
+            Birth = BirthAns;
             Console.WriteLine("Choose Nationality");
             Nationality = Console.ReadLine();
 
@@ -77,6 +83,18 @@ namespace Supermercado
         public string PrintName()
         {
             return $"{Name} {LastName}";
+        }
+        public int PrintRut()
+        {
+            return Rut;
+        }
+        public string Printbirth()
+        {
+            return Birth;
+        }
+        public string PrintNationality()
+        {
+            return Nationality;
         }
     }
 }

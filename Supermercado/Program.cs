@@ -20,18 +20,45 @@ namespace Supermercado
                 uso.AddPeople(uwu);//añado por defecto
                 uso.AddPeople(yes);//añado por defecto
                 Console.WriteLine("Now we are gonna create people for our supermarket(There are 2 default people)");
-                yes.HandMadeList(uso);
-                owo.ProductListH(uso2);
+                uso.HandMadeList();
+                Console.WriteLine("If you want to change someone information write (yes) if not write anything else");
+                string answ = Console.ReadLine();
+                while(answ == "yes")
+                {
+                    uso.waht();
+                    Console.WriteLine("If you want to change someone else write yes, if not write anything else ");
+                    answ = Console.ReadLine();
+                }
+                Console.WriteLine("Now we are gonna make the products of the supermarket");
+                owo.ProductListH();
                 Console.WriteLine("Now its time to stat the simulation");
-                uso.PeoplePurchase();
-                uso.PeopleSeller();
-                owo.Purchase();
+                answ = "yes";
+                int i = 0;
+                while (answ == "yes")
+                {
+                    uso.PeoplePurchase();
+                    uso.PeopleSeller();
+                    uso.showtransaction(i);
+                    owo.Purchase();
+                    Console.WriteLine("Do you want to do another transaction simulation?(yes, if not anything else)");
+                    answ = Console.ReadLine();
+                    i++;
+                }
             }
             else
             {
                 Console.WriteLine("Starting automatic simulation");
-                //yes.ListOfPr(uso);
-                owo.ProductListRandom(uso2);
+                yes.ListOfPr();
+                owo.ProductListRandom();
+                //yes.RandomPurchaseV2();
+                int i = 0;
+                while(i < 5)
+                {
+                    Console.WriteLine("  ");
+                    yes.RandomPurchaseV2();
+                    owo.AutoPurchase();
+                    i++;
+                }
 
             }
 

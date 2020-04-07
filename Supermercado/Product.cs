@@ -21,8 +21,8 @@ namespace Supermercado
         public void RandomProduct()//Random
         {
             Random random77 = new Random();
-            string[] RanProd = { "Pollo","Toothpaste","Cafe","Mayo", "Bread", "Sausage", "Butter", "Ice-Cream", "Cockies", "Coca-Cola","Flour","Sugar","Salt","Peper","Eggs","Mustard","Milk","Rice","Water","Apples","Potatoes","Carrots","Cheese","Lemons","Snickers","Chips" };
-            ProductName = RanProd[random77.Next(0,26)];
+            string[] RanProd = { "Curry","Noodles","Peanut","Lettuce","Chiquen","Toothpaste","Cafe","Mayo", "Bread", "Sausage", "Butter", "Ice-Cream", "Cockies", "Coca-Cola","Flour","Sugar","Salt","Peper","Eggs","Mustard","Milk","Rice","Water","Apples","Potatoes","Carrots","Cheese","Lemons","Snickers","Chips" };
+            ProductName = RanProd[random77.Next(0,30)];
             ProductPrice = random77.Next(1000, 8000);
             string[] RanBrands = {"Milo","Super Pollo","Soprole","Colgate","Oreo","Lay's","KitKat","7up","Hellmann's","Nestle" };
             Brand = RanBrands[random77.Next(0, 10)];
