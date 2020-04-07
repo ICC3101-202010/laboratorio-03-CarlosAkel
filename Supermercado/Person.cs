@@ -30,7 +30,7 @@ namespace Supermercado
         }
         public void HandMade()
         {
-            Console.WriteLine("Choose Rut");
+            Console.WriteLine("Choose Rut(Nine digits(194327548))");
             Rut = Int32.Parse(Console.ReadLine());
             Console.WriteLine("Choose name");
             Name = Console.ReadLine();
@@ -44,7 +44,7 @@ namespace Supermercado
                     
         }
 
-        public void RandomName()
+        public void RandomName()//Random
         {
             string[] NameNew = { "Isabella", "Mateo", "Agustina", "Agustín", "Sofía", "Santiago", "Emilia", "Tomás", "Josefa", "Lucas", "Isidora", "Benjamín", "Emma", "Gaspar", "Florencia", "Matías", "Trinidad", "Alonso", "Maite", "Vicente", "Julieta", "Joaquín" };
             string[] LastNameNew = { "Gonzales", "Muños", "Rojas", "Diaz", "Perez", "Soto", "Silva", "Contreras", "Lopez", "Rodriguez", "Morales", "Martinez", "Fuentes", "Valenzuela", "Araya", "Sepulveda", "Espinoza" };
